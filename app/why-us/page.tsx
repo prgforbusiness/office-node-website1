@@ -94,9 +94,15 @@ export default function WhyUsPage() {
     <>
       {/* Hero Section */}
       <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
-        {/* 背景動画／画像プレースホルダー */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/80 to-white" />
+        {/* 背景画像（必須）＋動画（任意） */}
+        <div
+          className="absolute inset-0 -z-10 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/why-us/hero.jpg')",
+            backgroundColor: "#f3f4ff",
+          }}
+        >
+          {/* 動画を置く場合は /public/videos/hero/why-us.mp4 に配置 */}
           <video
             className="absolute inset-0 h-full w-full object-cover"
             autoPlay
@@ -106,6 +112,7 @@ export default function WhyUsPage() {
             poster="/images/why-us/hero.jpg"
             src="/videos/hero/why-us.mp4"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/80 to-white" />
         </div>
 
         <div className="container mx-auto px-4 lg:px-8">
