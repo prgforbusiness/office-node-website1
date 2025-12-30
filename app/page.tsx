@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Users,
@@ -16,6 +17,7 @@ import {
   BookOpen,
   Handshake,
   Cog,
+  ImageIcon,
 } from "lucide-react";
 
 const fadeInUp = {
@@ -44,48 +46,76 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <motion.div
-            className="max-w-4xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.p
-              className="text-primary-600 font-medium mb-4 text-sm lg:text-base"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              生成AI × 中小企業診断士
-            </motion.p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              社員が
-              <span className="text-primary-600">&ldquo;使える&rdquo;</span>
-              まで、
-              <br />
-              <span className="text-primary-600">伴走</span>します
-            </h1>
-            <p className="text-lg lg:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
-              中小企業診断士が、一人ひとりのレベルに合わせた支援で、
-              <br className="hidden lg:block" />
-              生成AI活用を定着させます。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all hover:shadow-lg hover:shadow-primary-600/20"
+              <motion.p
+                className="text-primary-600 font-medium mb-4 text-sm lg:text-base"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
               >
-                まずはご相談ください
-                <ArrowRight size={20} />
-              </Link>
+                生成AI × 中小企業診断士
+              </motion.p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                社員が
+                <span className="text-primary-600">&ldquo;使える&rdquo;</span>
+                まで、
+                <br />
+                <span className="text-primary-600">伴走</span>します
+              </h1>
+              <p className="text-lg lg:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
+                中小企業診断士が、一人ひとりのレベルに合わせた支援で、
+                <br className="hidden lg:block" />
+                生成AI活用を定着させます。
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-all hover:shadow-lg hover:shadow-primary-600/20"
+                >
+                  まずはご相談ください
+                  <ArrowRight size={20} />
+                </Link>
               <Link
                 href="/services"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-700 px-8 py-4 rounded-lg font-medium text-lg border border-gray-200 transition-all"
               >
                 サービスを見る
               </Link>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Right: Hero Image */}
+            <motion.div
+              className="hidden lg:block"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary-100 to-primary-200">
+                {/* 画像がある場合はこちらを使用 */}
+                {/* <Image
+                  src="/images/hero/hero-main.jpg"
+                  alt="生成AI活用支援のイメージ"
+                  fill
+                  className="object-cover"
+                  priority
+                /> */}
+                
+                {/* 画像がない場合のプレースホルダー */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-primary-400">
+                  <ImageIcon className="w-20 h-20 mb-4 opacity-50" />
+                  <p className="text-lg font-medium">ヒーロー画像</p>
+                  <p className="text-sm opacity-75">/images/hero/hero-main.jpg</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

@@ -38,11 +38,26 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Form submitted:", data);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("送信に失敗しました");
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("送信に失敗しました。しばらくしてからお試しください。");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -288,6 +303,8 @@ export default function ContactPage() {
                   <span className="text-gray-700">
                     <Link
                       href="/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-primary-600 hover:underline"
                     >
                       プライバシーポリシー

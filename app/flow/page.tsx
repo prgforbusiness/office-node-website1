@@ -10,6 +10,7 @@ import {
   Rocket,
   ArrowRight,
   ArrowDown,
+  ImageIcon,
 } from "lucide-react";
 
 const fadeInUp = {
@@ -32,6 +33,7 @@ const steps = [
     icon: ClipboardList,
     title: "ヒアリング",
     subtitle: "現状の課題・レベル・目標を把握",
+    image: "/images/flow/step-01-hearing.jpg",
     description:
       "まずはお話をお聞かせください。現在の業務フロー、社員のスキルレベル、導入の目的やゴールを丁寧にヒアリングし、貴社の状況を正確に把握します。",
     details: [
@@ -46,6 +48,7 @@ const steps = [
     icon: Lightbulb,
     title: "設計",
     subtitle: "お客様に合わせた支援プランを作成",
+    image: "/images/flow/step-02-design.jpg",
     description:
       "ヒアリング内容をもとに、貴社に最適な支援プランを設計します。一律のパッケージではなく、課題とゴールに合わせたオーダーメイドのプランです。",
     details: [
@@ -60,6 +63,7 @@ const steps = [
     icon: Users,
     title: "実施",
     subtitle: "研修・ハンズオン・伴走支援",
+    image: "/images/flow/step-03-implementation.jpg",
     description:
       "設計したプランに基づいて、研修やハンズオン、伴走支援を実施します。理論だけでなく、実際に手を動かして「使える」体験を重視します。",
     details: [
@@ -74,6 +78,7 @@ const steps = [
     icon: TrendingUp,
     title: "定着",
     subtitle: "フォローアップ、Q&A対応、改善提案",
+    image: "/images/flow/step-04-retention.jpg",
     description:
       "研修で終わりではありません。社員の皆さまが実際に業務で使えるようになるまで、継続的にフォローアップを行います。",
     details: [
@@ -88,6 +93,7 @@ const steps = [
     icon: Rocket,
     title: "発展",
     subtitle: "さらなる活用拡大へ",
+    image: "/images/flow/step-05-growth.jpg",
     description:
       "定着した後は、さらなる活用拡大をサポート。他部門への展開や、より高度な活用方法の習得など、次のステップへ進むお手伝いをします。",
     details: [
@@ -142,6 +148,23 @@ export default function FlowPage() {
                       </div>
                       <div className="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center">
                         <step.icon className="w-8 h-8 text-white" />
+                      </div>
+                      
+                      {/* Image Placeholder */}
+                      <div className="hidden lg:block w-40 h-28 rounded-xl overflow-hidden bg-gradient-to-br from-primary-100 to-primary-200 mt-2">
+                        {/* 画像がある場合：
+                        <Image
+                          src={step.image}
+                          alt={step.title}
+                          width={160}
+                          height={112}
+                          className="object-cover w-full h-full"
+                        />
+                        */}
+                        <div className="w-full h-full flex flex-col items-center justify-center text-primary-400">
+                          <ImageIcon className="w-8 h-8 opacity-50" />
+                          <span className="text-xs mt-1 opacity-75">STEP {step.step}</span>
+                        </div>
                       </div>
                     </div>
 
