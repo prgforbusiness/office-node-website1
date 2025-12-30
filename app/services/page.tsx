@@ -166,8 +166,14 @@ export default function ServicesPage() {
     <>
       {/* Hero Section */}
       <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/80 to-white" />
+        <div
+          className="absolute inset-0 -z-10 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/services/hero.jpg')",
+            backgroundColor: "#f3f4ff",
+          }}
+        >
+          {/* 動画を置く場合は /public/videos/hero/services.mp4 に配置 */}
           <video
             className="absolute inset-0 h-full w-full object-cover"
             autoPlay
@@ -177,6 +183,7 @@ export default function ServicesPage() {
             poster="/images/services/hero.jpg"
             src="/videos/hero/services.mp4"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/80 to-white" />
         </div>
 
         <div className="container mx-auto px-4 lg:px-8">
