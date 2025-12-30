@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Award, Briefcase, Heart, Users } from "lucide-react";
 
@@ -14,17 +15,30 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white">
+      <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/80 to-white" />
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/about/hero.jpg"
+            src="/videos/hero/about.mp4"
+          />
+        </div>
+
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 drop-shadow-sm">
               事業者情報
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed drop-shadow-sm">
               オフィス・ノードについてご紹介します
             </p>
           </motion.div>
@@ -143,6 +157,48 @@ export default function AboutPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </motion.div>
+
+            {/* Representative */}
+            <motion.div
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+            >
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">
+                代表者プロフィール
+              </h2>
+              <div className="bg-gray-50 rounded-3xl p-8 lg:p-10">
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                  {/* 代表者画像 */}
+                  <div className="flex-shrink-0">
+                    <div className="w-48 h-48 rounded-2xl overflow-hidden shadow-lg">
+                      <Image
+                        src="/images/about/representative.jpg"
+                        alt="代表者"
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* プロフィール情報 */}
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      代表
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      中小企業診断士
+                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      中小企業の経営支援に携わる中で、生成AIの可能性に着目。
+                      「社員一人ひとりが使いこなせるまで」を目標に、伴走型の支援を行っています。
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 

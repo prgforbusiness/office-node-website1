@@ -165,17 +165,30 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white">
+      <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/80 to-white" />
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/services/hero.jpg"
+            src="/videos/hero/services.mp4"
+          />
+        </div>
+
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 drop-shadow-sm">
               サービス一覧
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed drop-shadow-sm">
               お客様の課題やフェーズに合わせて、最適なサービスをお選びいただけます。
               <br />
               どれを選べばいいかわからない場合も、お気軽にご相談ください。

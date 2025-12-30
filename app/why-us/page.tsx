@@ -93,17 +93,31 @@ export default function WhyUsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white">
+      <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
+        {/* 背景動画／画像プレースホルダー */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/80 to-white" />
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/why-us/hero.jpg"
+            src="/videos/hero/why-us.mp4"
+          />
+        </div>
+
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             className="text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 drop-shadow-sm">
               選ばれる理由
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed drop-shadow-sm">
               なぜオフィス・ノードが選ばれるのか。
               <br />
               私たちの支援の特徴をご紹介します。
